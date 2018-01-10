@@ -82,6 +82,10 @@ nav ul a:hover {
     .collection-item.avatar .description {
         position: initial;
         height: auto;
+        width: auto;
+    }
+    .collection-item.avatar .commAndLikes {
+        width: 100% !important;
     }
     .post-after-title-holder .post-img-holder {
         width: 100% !important;
@@ -96,6 +100,9 @@ nav ul a:hover {
     .collection .collection-item {
         width: 50% !important;
         padding: 18px 30px;
+    }
+    .posts .collection .collection-item.avatar {
+        width: 100% !important;
     }
     .collection .collection-item.avatar .btnHolder .primaryBtn {
         display: block;
