@@ -71,3 +71,33 @@ nav ul a:hover {
     width: 15%;
     display: inline-block;
 }
+
+@media screen and (max-width: 768px) {
+    .commAndLikes .commAndLikesChild {
+        margin-right: 15px;
+    }
+    .collection .collection-item.avatar {
+        padding-left: 10px;
+    }
+    .collection-item.avatar .description {
+        position: initial;
+        height: auto;
+    }
+    .post-after-title-holder .post-img-holder {
+        width: 100% !important;
+    }
+    .post.post-content .description {
+        width: 100%;
+        padding: 10px;
+    }
+    .post-after-title-holder .post-details-holder {
+        width: 100% !important;
+    }
+    .collection .collection-item {
+        width: 50% !important;
+        padding: 18px 30px;
+    }
+    .collection .collection-item.avatar .btnHolder .primaryBtn {
+        display: block;
+    }
+}
