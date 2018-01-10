@@ -1,0 +1,42 @@
+<div class="content">
+  <div *ngIf="!post">
+    <div class="progress">
+      <div class="indeterminate"></div>
+    </div>
+  </div>
+
+  <form class="form center-form" (ngSubmit)="deletePost()">
+    <h2>Delete Post</h2>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" name="title" type="text" value="{{post?.title}}" class="form-control" disabled />
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input id="image" name="image" type="text" value="{{post?.image}}" class="form-control" disabled />
+    </div>
+
+    <label for="class">Class</label>
+    <select id="class" name="class" type="text" value="{{post?.class}}" class="form-control" disabled>
+      <option>Positive</option>
+      <option>Negative</option>
+      <option>Neutral</option>
+    </select>
+
+
+    <label for="category">Category</label>
+    <select id="category" name="category" type="text" value="{{post?.category}}" class="form-control" disabled>
+      <option>Bitcoin</option>
+      <option>Etherium</option>
+      <option>Monero</option>
+    </select>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input id="description" name="description" type="text" value="{{post?.description}}" class="form-control" disabled/>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Delete" class="primaryBtn" />
+    </div>
+  </form>
+</div>

@@ -1,0 +1,67 @@
+<div *ngIf="postToView" class="post post-content">
+  <h3 class="post-title">{{postToView?.title}}</h3>
+  <div class="post-after-title-holder">
+    <div class="post-img-holder">
+      <img class="character-img" src="{{postToView?.image}}" alt="img">
+    </div>
+    <div class="post-details-holder">
+      <h5>Type: {{postToView?.class}}</h5>
+      <p class="info">Author: {{postToView?.author}}</p>
+      <p class="info">Posted on: {{postToView?.createdOn | date:'longDate'}}</p>
+      <div class="likes-holder">
+        <div class="likes-img-holder">
+          <img class="likes" src="./../../../../assets/like-btn.png">
+        </div>
+          <span>{{likes}}</span>
+      </div>
+      <div *ngIf="isLogged">
+        <br>
+        <br>
+        <a class="primaryBtn" (click)="likeDislike()">
+            {{likeBtn}}
+        </a>
+        <a *ngIf="isPostAuthor" class="primaryBtn" routerLink="/post/edit/{{postToView?._id}}">
+          Edit
+        </a>
+        <a *ngIf="isPostAuthor" class="primaryBtn" routerLink="/post/delete/{{postToView?._id}}">
+          Delete
+        </a>
+      </div>
+      <br>
+      <div *ngIf="!isLogged" class="guest">
+        <b>
+          Please login to create comments and like posts.
+        </b>
+      </div>
+    </div>
+  </div>  
+  <div id="desc" class="description">
+    <p>{{postToView?.description}}</p>
+  </div>
+</div>
+<div *ngIf="!postToView">
+  <div class="progress">
+    <div class="indeterminate"></div>
+  </div>
+</div>
+
+
+<div *ngIf="postToView" class="comments-holder">
+  <h4 class="post-comments-title">Comments</h4>
+  <article *ngFor="let comment of comments" class="post post-content">
+    <p>{{comment.text}}</p>
+    <div class="info">
+      submitted {{comment.createdOn}} ago by {{comment.author}}
+      <br>
+      <button *ngIf="comment.isAuthor" (click)="deleteComment(comment._id)" class="delete-comment-btn">Delete</button>
+    </div>
+  </article>
+</div>
+
+<div *ngIf="isLogged" class="post-comment">
+  <form id="commentForm" (ngSubmit)="createComment()">
+    <label for="icon_prefix2">Comment</label>
+    <textarea [(ngModel)]="comment" id="icon_prefix2" class="materialize-textarea" name="content" type="text"></textarea>
+    <input type="submit" value="Comment" id="btnPostComment" />
+  </form>
+</div>

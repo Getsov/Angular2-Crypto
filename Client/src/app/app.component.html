@@ -1,0 +1,54 @@
+<nav class="nav-container">
+    <div class="nav-wrapper container">
+        <a routerLink="/" class="brand-logo left">
+            <img src="https://images-platform.99static.com/R9GPNCTMR6cdu6GK6_EKuWgquJ4=/fit-in/900x675/99designs-contests-attachments/32/32689/attachment_32689693" height="63" width="190">
+        </a>
+        <ul *ngIf="isLogged" class="right hide-on-med-and-down nav">
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/post/blog">Blog</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/post/create">Create Post</a>
+            </li>
+            <li>
+                <a routerLink="/profile">Profile</a>
+            </li>
+            <li>
+                <a routerLink="/logout" (click)="logout()">Logout</a>
+            </li>
+            <li id="search-li">
+                <label for="search-box">
+                    <span class="material-icons">search</span>
+                </label>
+                <input placeholder="Search posts by Category" style="border:none" id="search-box" (keyup)="search($event)" />
+            </li>
+        </ul>
+
+        <ul class="right hide-on-med-and-down nav" *ngIf="!isLogged">
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/post/blog">Blog</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/register">Register</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/login">Login</a>
+            </li>
+            <li id="search-li">
+                <label for="search-box">
+                    <span class="material-icons">search</span>
+                </label>
+                <input placeholder="Search posts by Category" style="border:none" id="search-box" (keyup)="search($event)" />
+            </li>
+        </ul>
+    </div>
+</nav>
+<app-search-table [posts]="posts"></app-search-table>
+
+<router-outlet></router-outlet>
